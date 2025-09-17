@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Super Sixers</title>
+  <link rel="icon" type="image/png" href="supersixers.png">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+      max-width: 500px;
+      width: 90%;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #ffd700;
+      text-shadow: 2px 2px #000;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #ffdfdf;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      width: 70%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #ffd700;
+      color: #000;
+      font-weight: bold;
+      transition: transform 0.2s ease, background 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ffae00;
+    }
+
+    .message-box {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #00ffea;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background: #00ffea;
+      color: #000;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="main-container">
+    <h1>Welcome to Super Sixers</h1>
+    <h2>The Pride of Champions</h2>
+
+    <div id="input-section">
+      <p>Enter Your Player Name:</p>
+      <input type="text" id="playerName" placeholder="Type your name here...">
+      <br>
+      <button onclick="checkPlayer()">Submit</button>
+    </div>
+
+    <div class="message-box" id="message-section">
+      <p id="playerMessage"></p>
+      <button class="back-btn" onclick="goBack()">Go Back</button>
+    </div>
+  </div>
+
+  <script>
+    const players = {
+      "Siva": "Very Good Boy",
+      "Atul": "Chhote Ladke👦",
+      "Aman": "Chhote Ladke👦",
+      "Mohit": "Vishal pondati mammi💏",
+      "Akash anand": "Periya Thala and Captain of Super Sixers",
+      "Naveen ED anna": "President of Super Sixers",
+      "Vishal": "Mammi's Purshan💑",
+      "Sujith": "Manager of Super Sixers",
+      "Arjun": "Varshini Oda Allu Mr. Pramodh, He is the Asst. Manager of Super Sixers",
+      "Abishek": "Chhote Ladke👦",
+      "Anooj": "Sollu, ra. Dhu ku edhu illa la? Iva na pathi?",
+      "Gopi": "GYM Body da Nanu 💪",
+      "Amru": "Silent Boy",
+      "Naveen": "Biker",
+      "Rohit": "S I M I S"
+    };
+
+    function checkPlayer() {
+      const name = document.getElementById("playerName").value.trim();
+      const messageSection = document.getElementById("message-section");
+      const inputSection = document.getElementById("input-section");
+      const messageBox = document.getElementById("playerMessage");
+
+      if (players[name]) {
+        messageBox.innerText = players[name]; // ✅ Only message, no name or quotes
+      } else {
+        messageBox.innerText = "No Player Available";
+      }
+
+      inputSection.style.display = "none";
+      messageSection.style.display = "block";
+    }
+
+    function goBack() {
+      document.getElementById("playerName").value = "";
+      document.getElementById("input-section").style.display = "block";
+      document.getElementById("message-section").style.display = "none";
+    }
+  </script>
+</body>
+</html>
